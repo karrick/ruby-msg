@@ -87,7 +87,7 @@ module Mapi
 				recips = (recips.sort_by { |r| r.obj.name[/\d{8}$/].hex } rescue recips)
 				# switched to using , for separation, not ;. see issue #4
 				# recips.empty? is strange. i wouldn't have thought it possible, but it was right?
-				headers[type.to_s.sub(/^(.)/) { $1.upcase }] = [recips.join(', ')] unless recips.empty?
+				headers[type.to_s.sub(/^(.)/) { $1.upcase }] = [recips.join(', ')] if recips and !recips.empty?
 			end
 			headers['Subject'] = [props.subject] if props.subject
 
