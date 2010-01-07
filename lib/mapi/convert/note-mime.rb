@@ -202,7 +202,7 @@ module Mapi
                     when 'IPM.Note'
                       unsigned_body_to_mime
                     else
-                      Log.warn "to_mime used on a #{props.message_class}" unless props.message_class == 'IPM.Note'
+                      Log.warn "to_mime used on an unknown class #{props.message_class.inspect}"
                       unsigned_body_to_mime
                     end
     end

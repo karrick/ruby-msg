@@ -49,15 +49,16 @@ spec = Gem::Specification.new do |s|
 	s.version     = PKG_VERSION
 	s.summary     = %q{Ruby Msg library.}
 	s.description = %q{A library for reading and converting Outlook msg and pst files (mapi message stores).}
-	s.authors     = ["Charles Lowe"]
-	s.email       = %q{aquasync@gmail.com}
+	s.authors     = ["Charles Lowe", "Karrick McDermott"]
+	s.email       = ["aquasync@gmail.com", "karrick@gmail.com"]
 	s.homepage    = %q{http://code.google.com/p/ruby-msg}
 	s.rubyforge_project = %q{ruby-msg}
 
 	s.executables = ['mapitool']
 	s.files       = FileList['data/*.yaml', 'Rakefile', 'README', 'FIXES']
-	s.files      += FileList['lib/**/*.rb', 'test/test_*.rb', 'bin/*']
-	
+	s.files      += FileList['lib/**/*.rb', 'bin/*']
+	s.test_files = Dir.glob('test/test_*.rb')
+
 	s.has_rdoc    = true
 	s.extra_rdoc_files = ['README']
 	s.rdoc_options += ['--main', 'README',
@@ -74,4 +75,3 @@ Rake::GemPackageTask.new(spec) do |p|
 	p.need_zip = false
 	p.package_dir = 'build'
 end
-
