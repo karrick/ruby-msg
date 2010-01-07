@@ -214,7 +214,8 @@ module Mapi
 
       attachments.delete_if {|x| x.filename =~ /^smime\./} # don't need to keep a signature attachment
 
-      # Ignore the hashed/signed version of the document and grab only the clear-text, first, item in the parts list
+      # Ignore the hashed/signed version of the document and grab only the clear-text item in the parts list
+      #   (the first item is the clear-text version)
       multipart.parts.first
     end
 
