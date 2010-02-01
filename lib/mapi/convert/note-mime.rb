@@ -210,7 +210,7 @@ module Mapi
     def signed_body_to_mime
       # Should be only one attachment with smime filename.
       # Read in file contents only once so we don't need to rewind data.
-      multipart = Mime.new(attachments.select {|x| x.filename =~ /^smime\./}.first.data.read)
+      multipart = Mime.new(attachments.find {|x| x.filename =~ /^smime\./}.data.read)
 
       attachments.delete_if {|x| x.filename =~ /^smime\./} # don't need to keep a signature attachment
 
